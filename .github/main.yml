@@ -1,38 +1,49 @@
-name: Build and Deploy
+name: CI/CD
+
 on:
   push:
-    branches:
-      - master
-jobs:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
-  install-and-test:
+jobs:
+  build:
+
     runs-on: ubuntu-latest
+
     strategy:
       matrix:
-        node-version: [8.x, 10.x, 12.x]
+        node-version: [12.x]
+
     steps:
-    - uses: actions/checkout@master
-    - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@master
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Install and Test
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run the tests and generate coverage report
+      run: npm test -- --coverage
+
+    - name: Upload coverage to Codecov
+      uses: codecov/codecov-action@v1
+
+    - name: Build
+      run: npm run build
+
+    - name: Deploy
       run: |
-        yarn
-        yarn test
+        git config --global user.name $user_name
+        git config --global user.email $user_email
+        git remote set-url origin https://${github_token}@github.com/${repository}
+        npm run deploy
       env:
-        CI: true
-
-  build-and-deploy:
-    runs-on: ubuntu-latest
-    steps:
-    - name: Checkout
-      uses: actions/checkout@master
-
-    - name: Build and Deploy
-      uses: JamesIves/github-pages-deploy-action@master
-      env:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BRANCH: gh-pages
-        FOLDER: build
-        BUILD_SCRIPT: cp .env.example .env.local && yarn && yarn build
+        user_name: 'github-actions[bot]'
+        user_email: 'github-actions[bot]@users.noreply.github.com'
+        github_token: ${{ secrets.DEPLOY_ACCESS_TOKEN }}
+        repository: ${{ github.repository }}
