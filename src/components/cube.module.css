@@ -49,3 +49,14 @@
 .cube__face--left   { transform: rotateY(-90deg) translateZ(100px); }
 .cube__face--top    { transform: rotateX( 90deg) translateZ(100px); }
 .cube__face--bottom { transform: rotateX(-90deg) translateZ(100px); }
+
+.grid-container {
+    height: 100%;
+    display: grid;
+    grid-template-areas: '1 2 3';
+    padding: 0;
+}
+
+.grid-container > div{
+    border: 2px solid rgb(0, 0, 0);
+}

@@ -70,20 +70,98 @@ function Cube() {
         currentClass.current = showClass;
     }
 
+    function rotate(e: React.DragEvent<HTMLDivElement>){
+        
+    }
+
     return (
         <div className={`${styles["scene"]}`}
             onDragOver={(e)=>{e.preventDefault();}}
             onDrop={turn}
+            onMouseMove={rotate}
+            onMouseUp={(e)=>{e.preventDefault();}}
             >
 			<div ref={cubeRef} className={`${styles["cube"]}`} 
                 draggable="true"
                 >
-				<div className={`${styles["cube__face"]} ${styles["cube__face--front"]}`}>front</div>
-                <div className={`${styles["cube__face"]} ${styles["cube__face--back"]}`}>back</div>
-                <div className={`${styles["cube__face"]} ${styles["cube__face--right"]}`}>right</div>
-                <div className={`${styles["cube__face"]} ${styles["cube__face--left"]}`}>left</div>
-                <div className={`${styles["cube__face"]} ${styles["cube__face--top"]}`}>top</div>
-                <div className={`${styles["cube__face"]} ${styles["cube__face--bottom"]}`}>bottom</div>
+				<div className={`${styles["cube__face"]} ${styles["cube__face--front"]}`}>
+                    <div className={`${styles["grid-container"]} ${styles["grid-container--front"]}`}>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--1"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--2"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--3"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--4"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--5"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--6"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--7"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--8"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--9"]}`}></div>
+                    </div>
+                </div>
+                <div className={`${styles["cube__face"]} ${styles["cube__face--back"]}`}>
+                    <div className={`${styles["grid-container"]} ${styles["grid-container--back"]}`}>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--1"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--2"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--3"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--4"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--5"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--6"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--7"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--8"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--9"]}`}></div>
+                    </div>
+                </div>
+                <div className={`${styles["cube__face"]} ${styles["cube__face--right"]}`}>
+                    <div className={`${styles["grid-container"]} ${styles["grid-container--right"]}`}>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--1"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--2"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--3"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--4"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--5"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--6"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--7"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--8"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--9"]}`}></div>
+                    </div>
+                </div>
+                <div className={`${styles["cube__face"]} ${styles["cube__face--left"]}`}>
+                    <div className={`${styles["grid-container"]} ${styles["grid-container--left"]}`}>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--1"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--2"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--3"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--4"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--5"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--6"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--7"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--8"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--9"]}`}></div>
+                    </div>
+                </div>
+                <div className={`${styles["cube__face"]} ${styles["cube__face--top"]}`}>
+                    <div className={`${styles["grid-container"]} ${styles["grid-container--top"]}`}>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--1"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--2"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--3"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--4"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--5"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--6"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--7"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--8"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--9"]}`}></div>
+                    </div>
+                </div>
+                <div className={`${styles["cube__face"]} ${styles["cube__face--bottom"]}`}>
+                    <div className={`${styles["grid-container"]} ${styles["grid-container--bottom"]}`}>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--1"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--2"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--3"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--4"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--5"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--6"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--7"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--8"]}`}></div>
+                        <div className={`${styles["grid-item"]} ${styles["grid-item--9"]}`}></div>
+                    </div>
+                </div>
 			</div>
 		</div>
     );
