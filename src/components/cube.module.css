@@ -6,6 +6,10 @@
     align-items: center;
     justify-content: center;
     display: flex;
+    background: #d3d2d2;
+    border: 5px;
+    border-radius: 5px;
+    border-color: #000000;
 }
 
 .cube {
@@ -15,6 +19,15 @@
     transform-style: preserve-3d;
     transform: translateZ(-100px);
     transition: transform 1s;
+    /* animation: displayRotate; */
+    animation-duration: 6s;
+    animation-delay: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes displayRotate {
+    0% {transform: translateZ(-100px) rotateX(0deg)}
+    100% {transform: translateZ(-100px) rotateX(360deg)}
 }
 
 .cube.show-front  { transform: translateZ(-100px) rotateY(   0deg); }
@@ -29,19 +42,19 @@
     width: 200px;
     height: 200px;
     border: 2px solid black;
-    line-height: 200px;
-    font-size: 40px;
+    border-radius: 10px;
     font-weight: bold;
-    color: white;
+    color: rgb(0, 0, 0);
+    background: #000000;
     text-align: center;
 }
 
-.cube__face--front  { background: #009b48; }
-.cube__face--right  { background: #b71234; }
-.cube__face--back   { background: #0046ad; }
-.cube__face--left   { background: #ff5800; }
-.cube__face--top    { background: #ffffff; }
-.cube__face--bottom { background: #ffd500; }
+/* .cube__face--front  { background: #000000; }
+.cube__face--right  { background: #000000; }
+.cube__face--back   { background: #000000; }
+.cube__face--left   { background: #000000; }
+.cube__face--top    { background: #000000; }
+.cube__face--bottom { background: #000000; } */
 
 .cube__face--front  { transform: rotateY(  0deg) translateZ(100px); }
 .cube__face--right  { transform: rotateY( 90deg) translateZ(100px); }
@@ -57,6 +70,14 @@
     padding: 0;
 }
 
+.grid-container--front      > div  { background: #009b48; }
+.grid-container--right      > div  { background: #b71234; }
+.grid-container--back       > div  { background: #0046ad; }
+.grid-container--left       > div  { background: #ff5800; }
+.grid-container--top        > div  { background: #ffffff; }
+.grid-container--bottom     > div{ background: #ffd500; }
+
 .grid-container > div{
     border: 2px solid rgb(0, 0, 0);
+    border-radius: 10px;
 }
