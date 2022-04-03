@@ -1,15 +1,10 @@
 import { useRef } from 'react';
-import { PropertyName } from 'typescript';
-import styles from './cube.module.css';
+import styles from './grids.module.css';
 
 function Grids(props: any){
-    let containerRef = useRef(null);
+    let containerRef = useRef<HTMLDivElement>(null);
     let active = false;
-    let rotateSpeed = -0.5;
-    let lastDeg = {
-        x: 0,
-        y: 0
-    };
+    let cubeFace = props.face;
     let mousePosition = {
         x: 0,
         y: 0
@@ -35,21 +30,21 @@ function Grids(props: any){
 
     return (
         <div 
-            className={`${styles["grid-container"]} ${styles["grid-container--"+props.face]}`}
+            className={`${styles["grid-container"]} ${styles["grid-container--"+cubeFace]}`}
             onMouseDown={startRotate}
             onMouseMove={rotate}
             onMouseUp={stopRotate}
             ref={containerRef}
             >
-            <div className={`${styles["grid-item"]} ${styles["grid-item--LU"]}`}></div>
-            <div className={`${styles["grid-item"]} ${styles["grid-item--CU"]}`}></div>
-            <div className={`${styles["grid-item"]} ${styles["grid-item--RU"]}`}></div>
-            <div className={`${styles["grid-item"]} ${styles["grid-item--LC"]}`}></div>
-            <div className={`${styles["grid-item"]} ${styles["grid-item--CC"]}`}></div>
-            <div className={`${styles["grid-item"]} ${styles["grid-item--RC"]}`}></div>
-            <div className={`${styles["grid-item"]} ${styles["grid-item--LD"]}`}></div>
-            <div className={`${styles["grid-item"]} ${styles["grid-item--CD"]}`}></div>
-            <div className={`${styles["grid-item"]} ${styles["grid-item--RD"]}`}></div>
+            <div className={`${styles["grid-item"]} ${styles["grid-item--"+cubeFace+"-LU"]}`}></div>
+            <div className={`${styles["grid-item"]} ${styles["grid-item--"+cubeFace+"-CU"]}`}></div>
+            <div className={`${styles["grid-item"]} ${styles["grid-item--"+cubeFace+"-RU"]}`}></div>
+            <div className={`${styles["grid-item"]} ${styles["grid-item--"+cubeFace+"-LC"]}`}></div>
+            <div className={`${styles["grid-item"]} ${styles["grid-item--"+cubeFace+"-CC"]}`}><p>KW</p></div>
+            <div className={`${styles["grid-item"]} ${styles["grid-item--"+cubeFace+"-RC"]}`}></div>
+            <div className={`${styles["grid-item"]} ${styles["grid-item--"+cubeFace+"-LD"]}`}></div>
+            <div className={`${styles["grid-item"]} ${styles["grid-item--"+cubeFace+"-CD"]}`}></div>
+            <div className={`${styles["grid-item"]} ${styles["grid-item--"+cubeFace+"-RD"]}`}></div>
         </div>
     );
 }

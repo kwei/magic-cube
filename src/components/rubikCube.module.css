@@ -1,0 +1,43 @@
+.container {
+    width: 300px;
+    height: 300px;
+    padding: 80px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    background: #ebebeb;
+    border: solid 1px;
+    border-radius: 5px;
+    border-color: #000000;
+}
+
+.cube {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    transform-style: preserve-3d;
+    transform: translateZ(-100px);
+}
+
+.axis-x {
+    position: absolute;
+    width: 180px;
+    height: 2px;
+    background-color: #000000;
+}
+
+.axis-y {
+    position: absolute;
+    width: 180px;
+    height: 2px;
+    background-color: #000000;
+    transform: rotateZ(90deg);
+}
+
+.axis-z {
+    position: absolute;
+    width: 180px;
+    height: 2px;
+    background-color: #000000;
+    transform: rotateY(90deg);
+}

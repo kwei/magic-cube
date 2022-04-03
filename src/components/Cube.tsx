@@ -7,7 +7,6 @@ function Cube() {
     let sceneRef = useRef<HTMLDivElement>(null);
     let active = false;
     let rotateSpeed = -0.5;
-    let lastUpdateTime = useRef<Date>(new Date());
     let lastDeg = {
         x: 0,
         y: 0
@@ -21,7 +20,7 @@ function Cube() {
         active = true;
         mousePosition.x = e.clientX;
         mousePosition.y = e.clientY;
-        console.log("Active: " + active);
+        // console.log("Active: " + active);
     }
 
     function rotate(e: React.MouseEvent<HTMLDivElement>){
@@ -46,7 +45,7 @@ function Cube() {
 
     function stopRotate(e: React.MouseEvent<HTMLDivElement>){
         active = false;
-        console.log("Active: " + active);
+        // console.log("Active: " + active);
     }
 
     return (
