@@ -26,27 +26,27 @@
 .cubeFace--bottom { transform: rotateX(-90deg) translateZ(30px);}
 
 .cubeFace--Green {
-    background-color: green;
+    background-color: #009b48;
 }
 
 .cubeFace--Blue {
-    background-color: blue;
+    background-color: #0046ad;
 }
 
 .cubeFace--Red {
-    background-color: red;
+    background-color: #b71234;
 }
 
 .cubeFace--Orange {
-    background-color: orange;
+    background-color: #ff5800;
 }
 
 .cubeFace--White {
-    background-color: white;
+    background-color: #ffffff;
 }
 
 .cubeFace--Yellow {
-    background-color: yellow;
+    background-color: #ffd500;
 }
 
 .cubeFace--Black {
