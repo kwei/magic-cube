@@ -7,6 +7,7 @@ function Cube() {
     let sceneRef = useRef<HTMLDivElement>(null);
     let active = false;
     let rotateSpeed = -0.5;
+    let lastUpdateTime = useRef<Date>(new Date());
     let lastDeg = {
         x: 0,
         y: 0
@@ -38,8 +39,7 @@ function Cube() {
 
             lastDeg.y -= rotateSpeed*delta.x;
             lastDeg.x += rotateSpeed*delta.y;
-            console.log("Deg: ( " + lastDeg.x + ", " + lastDeg.y + " )");
-    
+            // console.log("Deg: ( " + lastDeg.x + ", " + lastDeg.y + " )");
             return cubeDom.style.transform = "translateZ(-100px) rotateY(" + lastDeg.y + "deg) rotateX(" + lastDeg.x + "deg)";
         }
     }
