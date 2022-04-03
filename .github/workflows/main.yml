@@ -32,6 +32,13 @@ jobs:
 
     - name: Build
       run: npm run build
+      
+    - name: Archive npm failure logs
+      uses: actions/upload-artifact@v2
+      if: failure()
+      with:
+        name: npm-logs
+        path: ~/.npm/_logs   
 
     - name: Deploy
       run: |
