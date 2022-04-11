@@ -9,14 +9,16 @@
     border: solid 1px;
     border-radius: 5px;
     border-color: #000000;
+    position: relative;
 }
 
 .cube {
     width: 200px;
     height: 200px;
-    position: relative;
+    position: absolute;
     transform-style: preserve-3d;
-    transform: translateZ(-100px);
+    align-items: center;
+    justify-content: center;
 }
 
 .axis-x {

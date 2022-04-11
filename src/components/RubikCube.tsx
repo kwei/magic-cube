@@ -108,7 +108,6 @@ function RubikCube(props: any) {
                         )
                     )
                 }
-                
             </div>
 		</div>
     );

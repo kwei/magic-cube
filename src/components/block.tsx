@@ -15,14 +15,31 @@ function Block (props: BlockProps) {
     let id = props.id;
     const BOX_SIZE = 60;
     let [positionX, positionY,positionZ] = props.position;
+    let boxRef = useRef<HTMLDivElement>(null);
+
+    function mouseDown (e: React.MouseEvent<HTMLDivElement>) {
+
+    }
+
+    function mouseMove (e: React.MouseEvent<HTMLDivElement>) {
+
+    }
+
+    function mouseUp (e: React.MouseEvent<HTMLDivElement>) {
+
+    }
 
     return (
         <div className={`${styles["container"]} ${styles["container--"+id]}`} 
             style={{
                 "--x": positionX*BOX_SIZE+"px",
-                "--y": (positionY-1)*BOX_SIZE+(BOX_SIZE/2)+"px",
+                "--y": (positionY)*BOX_SIZE+"px",
                 "--z": (-(positionZ-1))*BOX_SIZE+"px"
-            } as React.CSSProperties} 
+            } as React.CSSProperties}
+            ref={boxRef}
+            onMouseDown={mouseDown}
+            onMouseMove={mouseMove}
+            onMouseUp={mouseUp}
             >
             {
             directions.map((direction, index) => {
